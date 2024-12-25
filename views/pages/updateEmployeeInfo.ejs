@@ -1,0 +1,107 @@
+<h1>Update Employee List</h1>
+<form
+  method="post"
+  action="/update-employee-information/<%= data.emp_id%>"
+  enctype="multipart/form-data"
+>
+  <button
+    type="button"
+    class="delete"
+    value="<%= data.emp_id %>"
+    onclick="deleteItem()"
+  >
+    Delete Employee
+  </button>
+  <fieldset>
+    <legend>Basic Information</legend>
+    <div class="row">
+      <label for="emp_name">Employee Name</label>
+      <input
+        type="text"
+        id="emp_name"
+        name="emp_name"
+        value="<%= data.emp_name%>"
+      />
+    </div>
+    <div class="row">
+      <label for="contact_number">Contact Number</label>
+      <input
+        type="text"
+        id="contact_number"
+        name="contact_number"
+        value="<%= data.contact_number%>"
+      />
+    </div>
+    <div class="row">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" value="<%= data.email%>" />
+    </div>
+    <div class="row">
+      <label for="dob">DOB</label>
+      <input type="date" id="dob" name="dob" value="<%= data.dob%>" />
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Employment Details</legend>
+    <div class="row">
+      <label for="profile">Profile</label>
+      <input
+        type="text"
+        id="profile"
+        name="profile"
+        value="<%= data.profile%>"
+      />
+    </div>
+    <div class="row">
+      <label for="experience">Experience</label>
+      <input
+        type="text"
+        id="experience"
+        name="experience"
+        value="<%= data.experience%>"
+      />
+    </div>
+    <div class="row">
+      <label for="last_salary">Salary</label>
+      <input
+        type="text"
+        id="last_salary"
+        name="last_salary"
+        placeholder="Last Salary From Previous Employment"
+        value="<%= data.last_salary %>"
+      />
+    </div>
+    <div class="row">
+      <label for="current_salary">salary</label>
+      <input
+        type="text"
+        id="current_salary"
+        name="current_salary"
+        placeholder="Current CTC"
+        value="<%= data.current_salary %>"
+      />
+    </div>
+  </fieldset>
+  <div class="submit">
+    <button type="submit">Update</button>
+  </div>
+</form>
+<script>
+  async function deleteItem() {
+    let ifDelete = confirm("Are you sure?");
+    if (ifDelete) {
+      let deleteBtn = document.querySelector(".delete");
+      console.log(deleteBtn.value);
+      await fetch(`/delete-employee-information/${deleteBtn.value}`, {
+        method: "DELETE",
+      }).then((res) => {
+        if (res.status === 200) {
+          alert("Successfully deleted the employee information.");
+          window.location.href = "/view-employees";
+        } else {
+          alert("Something went wrong. Try after sometime.");
+        }
+      });
+    }
+  }
+</script>

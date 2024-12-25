@@ -1,0 +1,295 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  scroll-behavior: smooth;
+  background-color: #ddd;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  position: relative;
+  overflow: hidden;
+}
+
+.container .navigation {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(17, 17, 22);
+  color: white;
+}
+.container .navigation ul {
+  list-style: none;
+  padding: 0;
+  height: 450px;
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container .navigation ul li {
+  padding: 10px 20px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 200;
+  font-size: 18px;
+  transition: all 0.1s ease-in-out;
+}
+.container .navigation ul a {
+  text-decoration: none;
+  color: #fff;
+}
+.container .navigation ul li:hover {
+  background-color: #dddddd2a;
+}
+.container .pageView {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.container .pageView::-webkit-scrollbar {
+  background-color: transparent;
+  width: 13px;
+}
+.container .pageView::-webkit-scrollbar-track {
+  background-color: rgb(17, 17, 22, 0.2);
+}
+.container .pageView::-webkit-scrollbar-thumb {
+  background-color: rgb(17, 17, 22, 0.3);
+  cursor: grab;
+}
+.container .pageView::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(17, 17, 22, 0.7);
+}
+
+.container .pageView header {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  color: rgb(17, 17, 22);
+  line-height: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+.container .pageView header span {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: relative;
+}
+.container .pageView header span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: rgb(17, 17, 22);
+}
+.container main {
+  border-radius: 10px;
+  width: 90%;
+  min-height: 100vh;
+  margin: 100px auto;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.container main h1 {
+  height: 50px;
+  background-color: rgb(17, 17, 22);
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 0 10px;
+  line-height: 50px;
+  font-weight: 300;
+  box-sizing: border-box;
+}
+.container main form {
+  width: 90%;
+  margin: 20px auto;
+}
+.container main form fieldset {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.container main form legend {
+  background-color: rgb(17, 17, 22);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+  border-radius: 10px;
+  line-height: 30px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.container main form .row {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.container main form,
+.row label {
+  line-height: 20px;
+  font-size: 16px;
+  padding: 8px 0;
+  font-weight: 500;
+  text-transform: capitalize;
+  position: relative;
+}
+.container main form .row input {
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  background-color: #ddd;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.container main form .submit {
+  width: 90%;
+  margin: 30px auto;
+  height: 35px;
+}
+.container main form .submit button {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(17, 17, 22);
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid transparent;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.container .pageView footer {
+  background-color: white;
+  height: 50px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.3);
+  z-index: 99;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 500;
+}
+.container footer span {
+  display: inline-block;
+  font-size: 13px;
+  transform: translateX(-100%);
+}
+
+.container main table.employeeList {
+  width: 90%;
+  margin: 20px auto;
+  padding-bottom: 90px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.container main table.employeeList thead {
+  background-color: rgb(17, 17, 22);
+  color: white;
+  text-transform: uppercase;
+}
+.container main table.employeeList td,
+th {
+  text-align: center;
+  padding: 8px;
+  text-wrap: stable;
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+.container main table.employeeList tbody tr:nth-child(even) {
+  background-color: #ddd;
+}
+.container main table.employeeList tbody tr button {
+  outline: none;
+  border: 1px solid transparent;
+  background-color: #fec107;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 5px;
+  transition: all ease 0.2s;
+}
+.container main table.employeeList tbody tr button:hover {
+  font-weight: 700;
+  border: 1px solid black;
+  background-color: transparent;
+}
+.container main .box {
+  background-color: #ddd;
+  width: 200px;
+  aspect-ratio: 1/1;
+  margin: 50px;
+  box-shadow: 0px 0px 30px rgb(17, 17, 22, 0.4) inset,
+    0px 0px 20px rgba(17, 17, 22, 0.1);
+  border-radius: 20px;
+  position: relative;
+  font-size: 60px;
+  text-align: center;
+}
+.container main .box span {
+  margin-top: 40px;
+  display: inline-flex;
+  align-self: center;
+  justify-self: center;
+}
+.container main .box .totalEmployees {
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 200;
+  padding: 10px 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  background-color: rgb(17, 17, 22);
+  color: #fff;
+  border-radius: 0 0 20px 20px;
+  position: absolute;
+  bottom: 0;
+}
+
+.container main .box a {
+  text-decoration: none;
+  color: rgb(17, 17, 22);
+}
+
+button.delete {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  background-color: rgba(255, 0, 0, 0.8);
+  padding: 10px;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  transition: all ease-in-out 0.2s;
+}
+button.delete:hover {
+  cursor: pointer;
+  background-color: red;
+}

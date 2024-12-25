@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width scale=1.0" />
+    <meta name="author" content="Chandrika Harsha" />
+    <title><%= title %></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/style.css" type="text/css" media="screen" />
+  </head>
+  <body oncontextmenu="return false">
+    <div class="container">
+      <%- include("./Views/partialViews/sideNav.ejs")%>
+      <div class="pageView">
+        <header>
+          <span>ABC Company</span>
+        </header>
+        <main><%- include('views/pages/' +body) %></main>
+        <footer><span>ABC Company | 2024</span></footer>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<h1>View Employee List</h1>
+<table class="employeeList" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Emp_id</th>
+      <th>Name</th>
+      <th>Contact Number</th>
+      <th>Email</th>
+      <th>DOB</th>
+      <th>Profile</th>
+      <th>Experience</th>
+      <th>CTC</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% data.map((employee) => {%>
+    <tr>
+      <td><%=employee.emp_id%></td>
+      <td><%=employee.emp_name%></td>
+      <td><%=employee.contact_number%></td>
+      <td><%=employee.email%></td>
+      <td><%=employee.dob%></td>
+      <td><%=employee.profile%></td>
+      <td><%=employee.experience%></td>
+      <td><%=employee.current_salary%></td>
+      <td>
+        <a href="/update-employee-information/<%=employee.emp_id%>">
+          <button>Edit</button>
+        </a>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
